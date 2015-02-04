@@ -1,6 +1,12 @@
-Meteor.subscribe("profiles");
+Session.set("loading", true);
+Meteor.subscribe("profiles", function() {
+  Session.set("loading", null);
+});
 
 Template.profilesList.helpers({
+  loading: function () {
+    return Session.get("loading");
+  },
   profiles: function () {
     return Profiles.find();
   }
@@ -8,7 +14,7 @@ Template.profilesList.helpers({
 
 Template.profilesHovercard.events({
   "click .clickable": function(e, tpl) {
-    alert("Do something with " + tpl.data.user.email);
+    alert("Hello " + tpl.data.user.email);
   }
 });
 
