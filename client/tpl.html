@@ -1,0 +1,53 @@
+<head>
+  <title>demo-hovercard</title>
+</head>
+
+<body>
+  {{> navbar}}
+  {{> profilesList}}
+</body>
+
+<template name="navbar">
+
+  <div class="navbar-fixed">
+    <b>Meteor Hovercard Demo</b>
+    <a href="https://github.com/gwendall/meteor-hovercard-demo" style="float: right;">Github</a>
+  </div>
+
+</template>
+
+<template name="profilesList">
+
+  <div class="profiles-container">
+    {{#each profiles}}
+      {{#hovercard template="profilesHovercard" direction="vertical" trigger="hover"}}
+        <div class="profiles-item">
+          <div class="ellipsis">
+            <span>{{capitalize user.name.first}}</span>&nbsp;<span>{{capitalize user.name.last}}</span>
+          </div>
+        </div>
+      {{/hovercard}}
+    {{/each}}
+  </div>
+
+</template>
+
+<template name="profilesHovercard">
+
+  <div class="profiles-hovercard">
+    <div class="hovercard-pic">
+      <div class="img-frame">
+        <img src="{{user.picture.medium}}" alt="...">
+      </div>
+    </div>
+    <div class="hovercard-body">
+      <h4>
+        <span>{{capitalize user.name.first}}</span>&nbsp;<span>{{capitalize user.name.last}}</span>
+      </h4>
+      <div class="ellipsis">Email: {{user.email}}</div>
+      <div class="ellipsis">Phone: {{user.phone}}</div>
+      <div class="btn btn-primary clickable">Trigger a template event</div>
+    </div>
+  </div>
+
+</template>

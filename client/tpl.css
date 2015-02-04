@@ -1,0 +1,155 @@
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 50px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h4 {
+  margin: 0 0 5px 0;
+}
+
+.ellipsis {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis !important;     /** IE6+, Firefox 7+, Opera 11+, Chrome, Safari **/
+  -o-text-overflow: ellipsis !important;  /** Opera 9 & 10 **/
+}
+
+.navbar-fixed {
+  padding: 15px 20px;
+  border-bottom: rgba(0, 0, 0, .2) solid thin;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: rgba(220, 220, 220, 1);
+  color: rgba(0, 0, 0, .6);
+}
+
+.navbar-fixed a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar-fixed a:hover {
+  text-decoration: underline;
+}
+
+.profiles-container {
+  display: block;
+  width: 100%;
+}
+
+.profiles-item {
+  padding: 20px;
+  display: block;
+  width: 20%;
+  float: left;
+  font-weight: bold;
+  color: rgba(0, 0, 0, .4);
+  cursor: pointer;
+  border: transparent solid 10px;
+}
+
+.profiles-item:hover {
+  border: rgba(0, 0, 0, .1) solid 10px;
+  color: rgba(0, 0, 0, .7);
+}
+
+@media screen and (max-width: 1060px) {
+  .profiles-item {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profiles-item {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .profiles-item {
+    width: 100%;
+  }
+}
+
+.profiles-item:nth-child(1n) { background: #1abc9c; }
+.profiles-item:nth-child(2n) { background: #3498db; }
+.profiles-item:nth-child(3n) { background: #95a5a6; }
+.profiles-item:nth-child(4n) { background: #e74c3c; }
+.profiles-item:nth-child(5n) { background: #f39c12; }
+
+.profiles-hovercard {
+  width: 400px;
+  height: 146px;
+
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;
+
+  -webkit-flex-direction: row;
+  flex-direction: row;
+
+  align-items: stretch;
+
+}
+
+.hovercard-pic {
+  padding: 10px;
+  width: 140px;
+}
+
+.hovercard-pic .img-frame {
+  display: table;
+  padding: 2px;
+  border: rgba(0, 0, 0, .3) solid thin;
+  border-radius: 2px;
+}
+
+.hovercard-pic img {
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 0, 0, .1);
+  margin: 0;
+  vertical-align: middle;
+}
+
+.hovercard-body {
+  -webkit-flex: 1;
+  flex: 1;
+  margin: 10px;
+  position: relative;
+}
+
+.hovercard-body .btn {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 0;
+  color: rgba(0, 0, 0, .5);
+  background: #1abc9c;
+  border: rgba(0, 0, 0, .1) solid thin;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.hovercard-body .btn:hover {
+  color: rgba(0, 0, 0, .8);
+}
