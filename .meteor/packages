@@ -5,8 +5,5 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
-
-gwendall:hovercard
 http
+gwendall:hovercard

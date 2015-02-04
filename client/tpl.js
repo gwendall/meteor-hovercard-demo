@@ -1,22 +1,14 @@
-Session.set("loading", true);
-HTTP.call("GET", "//api.randomuser.me/?results=100", {}, function(err, res) {
-  var profiles = (res && res.data && res.data.results) || [];
-  Session.set("profiles", profiles);
-  Session.set("loading", null);
-});
+Meteor.subscribe("profiles");
 
 Template.profilesList.helpers({
-  loading: function () {
-    return Session.get("loading");
-  },
   profiles: function () {
-    return Session.get("profiles");
+    return Profiles.find();
   }
 });
 
 Template.profilesHovercard.events({
   "click .clickable": function(e, tpl) {
-    alert("Adding " + tpl.data.user.email);
+    alert("Do something with " + tpl.data.user.email);
   }
 });
 

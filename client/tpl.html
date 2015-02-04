@@ -18,25 +18,17 @@
 
 <template name="profilesList">
 
-  {{#if loading}}
-
-    <div class="loading">Fetching data...</div>
-    
-  {{else}}
-
-    <div class="profiles-container">
-      {{#each profiles}}
-        {{#hovercard template="profilesHovercard" direction="vertical" trigger="hover"}}
-          <div class="profiles-item">
-            <div class="ellipsis">
-              <span>{{capitalize user.name.first}}</span>&nbsp;<span>{{capitalize user.name.last}}</span>
-            </div>
+  <div class="profiles-container">
+    {{#each profiles}}
+      {{#hovercard template="profilesHovercard" direction="vertical" trigger="hover"}}
+        <div class="profiles-item">
+          <div class="ellipsis">
+            <span>{{capitalize user.name.first}}</span>&nbsp;<span>{{capitalize user.name.last}}</span>
           </div>
-        {{/hovercard}}
-      {{/each}}
-    </div>
-
-  {{/if}}
+        </div>
+      {{/hovercard}}
+    {{/each}}
+  </div>
 
 </template>
 
