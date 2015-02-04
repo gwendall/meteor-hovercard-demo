@@ -1,9 +1,14 @@
-HTTP.call("GET", "http://api.randomuser.me/?results=100", {}, function(err, res) {
+Session.set("loading", true);
+HTTP.call("GET", "//api.randomuser.me/?results=100", {}, function(err, res) {
   var profiles = (res && res.data && res.data.results) || [];
   Session.set("profiles", profiles);
+  Session.set("loading", null);
 });
 
 Template.profilesList.helpers({
+  loading: function () {
+    return Session.get("loading");
+  },
   profiles: function () {
     return Session.get("profiles");
   }
